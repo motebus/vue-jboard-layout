@@ -1,15 +1,19 @@
 {
-  "name": "vue-board-layout",
+  "name": "vue-jboard-layout",
   "version": "0.1.0",
   "private": true,
+  "main": "./dist/jboard-layout.umd.min.js",
+  "files": ["dist/*", "package.json"],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name jboard-layout ./src/components/BoardLayout.vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "urijs": "^1.19.1",
+    "vue": "^2.6.10",
+    "vue-friendly-iframe": "^0.12.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
