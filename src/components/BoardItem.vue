@@ -1,5 +1,5 @@
 <template>
-  <vue-friendly-iframe :style="item" class="frame" :src="frameSrc"></vue-friendly-iframe>
+  <vue-friendly-iframe :style="item" :src="frameSrc" class="frame"></vue-friendly-iframe>
 </template>
 
 <script>
@@ -56,7 +56,9 @@ export default {
         "grid-column-start": x + 1,
         "grid-column-end": x + 1 + w,
         "grid-row-start": y + 1,
-        "grid-row-end": y + 1 + h
+        "grid-row-end": y + 1 + h,
+        height: "100%",
+        width: "100%"
       };
       this.item = style;
     }

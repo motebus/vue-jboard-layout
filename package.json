@@ -6,7 +6,7 @@
   "files": ["dist/*", "package.json"],
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name jboard-layout ./src/components/BoardLayout.vue",
+    "build": "vue-cli-service build --target lib --name jboard-layout ./src/components/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
