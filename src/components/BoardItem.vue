@@ -1,5 +1,5 @@
 <template>
-  <vue-friendly-iframe :style="item" :src="frameSrc" class="frame"></vue-friendly-iframe>
+  <vue-friendly-iframe :style="item" :src="frameSrc" :class="frame"></vue-friendly-iframe>
 </template>
 
 <script>
@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       frameSrc: "#",
+      frame: "frame",
       item: {}
     };
   },
