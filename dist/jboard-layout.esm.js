@@ -12523,7 +12523,7 @@ var script$1 = {
         display: "grid",
         position: "absolute",
         height: "98%",
-        width: "98%",
+        width: "100%",
         "min-width": "95%",
         "min-height": "95%"
       },
