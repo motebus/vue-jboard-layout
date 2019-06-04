@@ -2,7 +2,7 @@
   "name": "vue-jboard-layout",
   "version": "0.1.0",
   "private": true,
-  "main": "./dist/jboard-layout.umd.min.js",
+  "main": "./dist/jboard-layout.umd.js",
   "files": ["dist/*", "package.json"],
   "scripts": {
     "serve": "vue-cli-service serve",
