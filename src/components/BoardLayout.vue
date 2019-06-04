@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import BoardItem from "@/components/BoardItem.vue";
+import BoardItem from "./BoardItem.vue";
 
 export default {
   name: "board-layout",
