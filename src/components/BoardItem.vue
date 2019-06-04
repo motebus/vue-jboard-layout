@@ -1,5 +1,5 @@
 <template>
-  <vue-friendly-iframe :style="item" :src="frameSrc" :class="frame"></vue-friendly-iframe>
+  <vue-friendly-iframe class="frame" :style="item" :src="frameSrc"></vue-friendly-iframe>
 </template>
 
 <script>
@@ -19,7 +19,6 @@ export default {
   data() {
     return {
       frameSrc: "#",
-      frame: "frame",
       item: {}
     };
   },
@@ -67,7 +66,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .frame iframe {
   height: 100%;
   width: 100%;

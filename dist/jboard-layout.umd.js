@@ -12290,7 +12290,6 @@
     data() {
       return {
         frameSrc: "#",
-        frame: "frame",
         item: {}
       };
     },
@@ -12481,7 +12480,7 @@
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
     return _c("vue-friendly-iframe", {
-      class: _vm.frame,
+      staticClass: "frame",
       style: _vm.item,
       attrs: { src: _vm.frameSrc }
     })
@@ -12492,11 +12491,11 @@
     /* style */
     const __vue_inject_styles__ = function (inject) {
       if (!inject) return
-      inject("data-v-0ddd08e0_0", { source: "\n.frame iframe[data-v-0ddd08e0] {\n  height: 100%;\n  width: 100%;\n}\n", map: {"version":3,"sources":["/home/slime3251/git/vue-board-layout/src/components/BoardItem.vue"],"names":[],"mappings":";AAsEA;EACA,YAAA;EACA,WAAA;AACA","file":"BoardItem.vue","sourcesContent":["<template>\n  <vue-friendly-iframe :style=\"item\" :src=\"frameSrc\" :class=\"frame\"></vue-friendly-iframe>\n</template>\n\n<script>\nimport URI from \"urijs\";\nimport VueFriendlyIframe from \"vue-friendly-iframe\";\n\nexport default {\n  name: \"board-item\",\n  components: {\n    VueFriendlyIframe\n  },\n  props: {\n    page: String,\n    params: Object,\n    size: Object\n  },\n  data() {\n    return {\n      frameSrc: \"#\",\n      frame: \"frame\",\n      item: {}\n    };\n  },\n  watch: {\n    page: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    params: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    size: {\n      immediate: true,\n      handler() {\n        this.dealSize();\n      }\n    }\n  },\n  methods: {\n    dealUrl() {\n      if (!this.page) return \"#\";\n\n      let url = URI(this.page).search(this.params);\n      this.frameSrc = url.toString();\n    },\n\n    dealSize() {\n      let { x, y, w, h } = this.size;\n      let style = {\n        \"grid-column-start\": x + 1,\n        \"grid-column-end\": x + 1 + w,\n        \"grid-row-start\": y + 1,\n        \"grid-row-end\": y + 1 + h,\n        height: \"100%\",\n        width: \"100%\"\n      };\n      this.item = style;\n    }\n  }\n};\n</script>\n\n<style scoped>\n.frame iframe {\n  height: 100%;\n  width: 100%;\n}\n</style>\n"]}, media: undefined });
+      inject("data-v-8fd8c230_0", { source: "\n.frame iframe {\n  height: 100%;\n  width: 100%;\n}\n", map: {"version":3,"sources":["/home/slime3251/git/vue-board-layout/src/components/BoardItem.vue"],"names":[],"mappings":";AAqEA;EACA,YAAA;EACA,WAAA;AACA","file":"BoardItem.vue","sourcesContent":["<template>\n  <vue-friendly-iframe class=\"frame\" :style=\"item\" :src=\"frameSrc\"></vue-friendly-iframe>\n</template>\n\n<script>\nimport URI from \"urijs\";\nimport VueFriendlyIframe from \"vue-friendly-iframe\";\n\nexport default {\n  name: \"board-item\",\n  components: {\n    VueFriendlyIframe\n  },\n  props: {\n    page: String,\n    params: Object,\n    size: Object\n  },\n  data() {\n    return {\n      frameSrc: \"#\",\n      item: {}\n    };\n  },\n  watch: {\n    page: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    params: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    size: {\n      immediate: true,\n      handler() {\n        this.dealSize();\n      }\n    }\n  },\n  methods: {\n    dealUrl() {\n      if (!this.page) return \"#\";\n\n      let url = URI(this.page).search(this.params);\n      this.frameSrc = url.toString();\n    },\n\n    dealSize() {\n      let { x, y, w, h } = this.size;\n      let style = {\n        \"grid-column-start\": x + 1,\n        \"grid-column-end\": x + 1 + w,\n        \"grid-row-start\": y + 1,\n        \"grid-row-end\": y + 1 + h,\n        height: \"100%\",\n        width: \"100%\"\n      };\n      this.item = style;\n    }\n  }\n};\n</script>\n\n<style>\n.frame iframe {\n  height: 100%;\n  width: 100%;\n}\n</style>\n"]}, media: undefined });
 
     };
     /* scoped */
-    const __vue_scope_id__ = "data-v-0ddd08e0";
+    const __vue_scope_id__ = undefined;
     /* module identifier */
     const __vue_module_identifier__ = undefined;
     /* functional template */
