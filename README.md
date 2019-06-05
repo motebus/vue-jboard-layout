@@ -1,4 +1,4 @@
-# vue-board-layout
+# vue-jboard-layout
 
 ## Project setup
 ```
