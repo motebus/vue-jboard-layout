@@ -12,8 +12,9 @@ export default {
     VueFriendlyIframe
   },
   props: {
-    page: String,
-    params: Object,
+    name: String,
+    app: Object,
+    data: Object,
     size: Object
   },
   data() {
@@ -23,13 +24,19 @@ export default {
     };
   },
   watch: {
-    page: {
+    name: {
       immediate: true,
       handler() {
         this.dealUrl();
       }
     },
-    params: {
+    app: {
+      immediate: true,
+      handler() {
+        this.dealUrl();
+      }
+    },
+    data: {
       immediate: true,
       handler() {
         this.dealUrl();
@@ -44,9 +51,9 @@ export default {
   },
   methods: {
     dealUrl() {
-      if (!this.page) return "#";
+      if (!this.name) return "#";
 
-      let url = URI(this.page).search(this.params);
+      let url = URI(this.name).search(this.app);
       this.frameSrc = url.toString();
     },
 

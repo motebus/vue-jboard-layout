@@ -12283,8 +12283,9 @@
       VueFriendlyIframe
     },
     props: {
-      page: String,
-      params: Object,
+      name: String,
+      app: Object,
+      data: Object,
       size: Object
     },
     data() {
@@ -12294,13 +12295,19 @@
       };
     },
     watch: {
-      page: {
+      name: {
         immediate: true,
         handler() {
           this.dealUrl();
         }
       },
-      params: {
+      app: {
+        immediate: true,
+        handler() {
+          this.dealUrl();
+        }
+      },
+      data: {
         immediate: true,
         handler() {
           this.dealUrl();
@@ -12315,9 +12322,9 @@
     },
     methods: {
       dealUrl() {
-        if (!this.page) return "#";
+        if (!this.name) return "#";
 
-        let url = URI(this.page).search(this.params);
+        let url = URI(this.name).search(this.app);
         this.frameSrc = url.toString();
       },
 
@@ -12491,7 +12498,7 @@
     /* style */
     const __vue_inject_styles__ = function (inject) {
       if (!inject) return
-      inject("data-v-8fd8c230_0", { source: "\n.frame iframe {\n  height: 100%;\n  width: 100%;\n}\n", map: {"version":3,"sources":["/home/slime3251/git/vue-board-layout/src/components/BoardItem.vue"],"names":[],"mappings":";AAqEA;EACA,YAAA;EACA,WAAA;AACA","file":"BoardItem.vue","sourcesContent":["<template>\n  <vue-friendly-iframe class=\"frame\" :style=\"item\" :src=\"frameSrc\"></vue-friendly-iframe>\n</template>\n\n<script>\nimport URI from \"urijs\";\nimport VueFriendlyIframe from \"vue-friendly-iframe\";\n\nexport default {\n  name: \"board-item\",\n  components: {\n    VueFriendlyIframe\n  },\n  props: {\n    page: String,\n    params: Object,\n    size: Object\n  },\n  data() {\n    return {\n      frameSrc: \"#\",\n      item: {}\n    };\n  },\n  watch: {\n    page: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    params: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    size: {\n      immediate: true,\n      handler() {\n        this.dealSize();\n      }\n    }\n  },\n  methods: {\n    dealUrl() {\n      if (!this.page) return \"#\";\n\n      let url = URI(this.page).search(this.params);\n      this.frameSrc = url.toString();\n    },\n\n    dealSize() {\n      let { x, y, w, h } = this.size;\n      let style = {\n        \"grid-column-start\": x + 1,\n        \"grid-column-end\": x + 1 + w,\n        \"grid-row-start\": y + 1,\n        \"grid-row-end\": y + 1 + h,\n        height: \"100%\",\n        width: \"100%\"\n      };\n      this.item = style;\n    }\n  }\n};\n</script>\n\n<style>\n.frame iframe {\n  height: 100%;\n  width: 100%;\n}\n</style>\n"]}, media: undefined });
+      inject("data-v-41e54953_0", { source: "\n.frame iframe {\n  height: 100%;\n  width: 100%;\n}\n", map: {"version":3,"sources":["/home/slime3251/git/vue-jboard-layout/src/components/BoardItem.vue"],"names":[],"mappings":";AA4EA;EACA,YAAA;EACA,WAAA;AACA","file":"BoardItem.vue","sourcesContent":["<template>\n  <vue-friendly-iframe class=\"frame\" :style=\"item\" :src=\"frameSrc\"></vue-friendly-iframe>\n</template>\n\n<script>\nimport URI from \"urijs\";\nimport VueFriendlyIframe from \"vue-friendly-iframe\";\n\nexport default {\n  name: \"board-item\",\n  components: {\n    VueFriendlyIframe\n  },\n  props: {\n    name: String,\n    app: Object,\n    data: Object,\n    size: Object\n  },\n  data() {\n    return {\n      frameSrc: \"#\",\n      item: {}\n    };\n  },\n  watch: {\n    name: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    app: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    data: {\n      immediate: true,\n      handler() {\n        this.dealUrl();\n      }\n    },\n    size: {\n      immediate: true,\n      handler() {\n        this.dealSize();\n      }\n    }\n  },\n  methods: {\n    dealUrl() {\n      if (!this.name) return \"#\";\n\n      let url = URI(this.name).search(this.app);\n      this.frameSrc = url.toString();\n    },\n\n    dealSize() {\n      let { x, y, w, h } = this.size;\n      let style = {\n        \"grid-column-start\": x + 1,\n        \"grid-column-end\": x + 1 + w,\n        \"grid-row-start\": y + 1,\n        \"grid-row-end\": y + 1 + h,\n        height: \"100%\",\n        width: \"100%\"\n      };\n      this.item = style;\n    }\n  }\n};\n</script>\n\n<style>\n.frame iframe {\n  height: 100%;\n  width: 100%;\n}\n</style>\n"]}, media: undefined });
 
     };
     /* scoped */
@@ -12555,8 +12562,8 @@
 
       dealGrid(grid) {
         let data = grid.map((item, id) => {
-          let { page, params, data, ...size } = item;
-          return { page, params, size, id };
+          let { name, app, data, ...size } = item;
+          return { name, app, data ,size, id };
         });
         this.itemData = data;
       }
@@ -12577,7 +12584,7 @@
       _vm._l(_vm.itemData, function(data) {
         return _c("board-item", {
           key: data.id,
-          attrs: { page: data.page, size: data.size, params: data.params }
+          attrs: { name: data.name, size: data.size, app: data.app }
         })
       }),
       1

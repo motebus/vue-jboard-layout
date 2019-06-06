@@ -3,9 +3,9 @@
     <board-item
       v-for="data in itemData"
       :key="data.id"
-      :page="data.page"
+      :name="data.name"
       :size="data.size"
-      :params="data.params"
+      :app="data.app"
     ></board-item>
   </div>
 </template>
@@ -51,8 +51,8 @@ export default {
 
     dealGrid(grid) {
       let data = grid.map((item, id) => {
-        let { page, params, data, ...size } = item;
-        return { page, params, size, id };
+        let { name, app, data, ...size } = item;
+        return { name, app, data ,size, id };
       });
       this.itemData = data;
     }

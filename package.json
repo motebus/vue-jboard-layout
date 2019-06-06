@@ -1,6 +1,6 @@
 {
   "name": "vue-jboard-layout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "main": "dist/jboard-layout.umd.js",
   "module": "dist/jboard-layout.esm.js",
